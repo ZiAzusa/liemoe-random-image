@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta name='viewport' content='width=device-width,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'>
+<title>Nahida.Fun随机图 | 抽卡</title>
+<link rel="shortcut icon" href="style/favicon.ico">
+<style>
+@import './style/css/google-font.css';
+body,input{
+  font-family:'Poppins', sans-serif;
+}
+p{
+  line-height:2;
+}
+.overlay{
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.text-bg{
+  padding:24px;
+  background:rgba(128, 128, 128, 0.1);
+  border-radius:16px;
+}
+.notice{
+  margin:10%auto0;
+  background:rgba(128, 128, 128, 0.2);
+  padding:2%5%;
+  border-radius:16px;
+}
+input[id='submit']{
+  width:100%;
+  margin:20px auto;
+  height:40px;
+  border-width:0px;
+  border-radius:3px;
+  background:#1E90FF;
+  cursor:pointer;
+  outline:none;
+  color:white;
+  font-size:17px;
+  -webkit-appearance:none;
+}
+input[id='submit']:hover{
+  background:#5599FF;
+  -webkit-appearance:none;
+}
+::-moz-placeholder{
+  color:#6a6f77;
+}
+input::-webkit-input-placeholder{
+  color:#6a6f77;
+}
+#result{
+  width:100%;
+  cursor:pointer;
+}
+@media (prefers-color-scheme:light){
+  body{
+    color:black;
+    background:white;
+  }
+}
+@media (prefers-color-scheme:dark){
+  body{
+    color:white;
+    background:black;
+  }
+}
+@media only screen and (max-width:424px){
+  .input_control{
+    width:calc(100vw - 64px);
+    margin:20px auto;
+  }
+}
+@media screen and (min-width:424px){
+  .input_control{
+    width:360px;
+    margin:20px auto;
+  }
+}
+</style>
+</head>
+<body style='margin:0px;'>
+<div id='overlay' class='overlay' style="overflow:hidden;">
+  <div class='text-bg'>
+    <div class='input_control'>
+      <input id='submit' type='submit' value='抽卡' onclick="run()">
+      <div class='notice'>
+        <p id="note">↑ 点一点开始抽卡哦~ヾ(≧▽≦*)o</p>
+        <img id="result" onload="next()" onclick="dlimg()"></img>
+      </div>
+      <footer id='footer'><hr><p align="center">2022-2023: Nahida.Fun</p></footer>
+    </div>
+  </div>
+</div>
+<script>
+var blocker = false;
+var note =  document.getElementById("note");
+var img = document.getElementById("result");
+function run() {
+  if (blocker == true) {
+    alert("请慢点哦，这张图还没加载完呢~");
+    return;
+  }
+  note.innerHTML = "请稍等，图片正在加载中~~~";
+  blocker = true;
+  img.title = "加载中…";
+  var request = new XMLHttpRequest();
+  request.open("get", "/random?type=json");
+  request.send(null);
+  request.onload = function () {
+    if (request.status == 200) {
+      var data = JSON.parse(request.responseText);
+      img.src = data['pic'][0];
+    }else{
+      alert("调用出错啦！");
+    }
+  }
+}
+function next() {
+  note.innerHTML = "↓ 点击图片就能下载哦(o゜▽゜)o☆";
+  img.title = "点击下载";
+  blocker = false;
+}
+function dlimg() {
+  if (blocker == true) {
+    alert("请稍等哦，正在加载新的图片啦~");
+    return;
+  }
+  download(img.src);
+}
+</script>
+<script src='style/download.min.js'></script>
+</body>
+</html>

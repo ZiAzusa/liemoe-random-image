@@ -1,0 +1,137 @@
+@import './google-font.css';
+body{
+    font-family:'Poppins', sans-serif;
+}
+.overlay{
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.overlay:before{
+    background:url(https://imgapi.nahida.fun/random) no-repeat;
+    background-size:cover;
+    background-position:center 0;
+    width:100%;
+    height:100%;
+    content:"";
+    top:0;
+    left:0;
+    z-index:-1;
+    margin:0;
+    padding:0;
+    position:fixed;
+}
+@media (prefers-color-scheme:light){
+    body{
+        color:black;
+        background:white;
+    }
+    .text-bg{
+        color:black;
+        background-color:rgba(255, 255, 255, 0.7);
+        padding:24px;
+        border-radius:16px;
+        backdrop-filter:blur(4px);
+        -webkit-backdrop-filter:blur(4px);
+        width:90%;
+    }
+    pre{
+        padding:8px;
+        background-color:#ffffff96;
+        white-space:pre-wrap;
+        white-space:-moz-pre-wrap;
+        white-space:-pre-wrap;
+        white-space:-o-pre-wrap;
+        word-wrap:break-word;
+    }
+    table tr:nth-child(odd){
+        background:#ffffff96;
+    }
+    table tr:nth-child(even){
+        background:#F5FAFA96;
+    }
+    table td, table th{
+        border:1px solid #cad9ea96;
+        height:30px;
+        padding:8px;
+    }
+    table thead th{
+        background-color:#CCE8EB96;
+    }
+}
+@media (prefers-color-scheme:dark){
+    body{
+        color:white;
+        background:black;
+    }
+    .text-bg{
+        color:white;
+        background-color:rgba(0, 0, 0, 0.7);
+        padding:24px;
+        border-radius:16px;
+        backdrop-filter:blur(4px);
+        -webkit-backdrop-filter:blur(4px);
+        width:90%;
+    }
+    pre{
+        padding:8px;
+        background-color:#00000096;
+        white-space:pre-wrap;
+        white-space:-moz-pre-wrap;
+        white-space:-pre-wrap;
+        white-space:-o-pre-wrap;
+        word-wrap:break-word;
+    }
+    table tr:nth-child(odd){
+        background:#00000096;
+    }
+    table tr:nth-child(even){
+        background:#191d1d96;
+    }
+    table td,table th{
+        border:1px solid #CCE8EB96;
+        height:30px;
+        padding:8px;
+    }
+    table thead th{
+        background-color:#cad9ea96;
+    }
+}
+.input_control{
+    width:90%;
+    margin:20px auto;
+}
+table{
+    border-collapse:collapse;
+    width:100%;
+}
+p{
+    line-height:2;
+}
+a{
+    color:#1E90FF;
+}
+#nahida{
+    height:32px;
+    vertical-align:middle;
+}
+@media only screen and (max-width:450px){
+    #nahida{
+        height:26px;
+        vertical-align:middle;
+    }
+    h1{
+        font-size:26px;
+    }
+}
+@media only screen and (max-width:1000px){
+    .scroll{
+        overflow-x:scroll;
+        width:100%;
+    }
+    table{
+        border-collapse:collapse;
+        width:810px;
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "*"
+                },
+                {
+                    "key": "Access-Control-Allow-Headers",
+                    "value": "Content-Type,Content-Length,Accept-Encoding,X-Requested-with,Origin"
+                },
+                {
+                    "key": "Access-Control-Allow-Methods",
+                    "value": "GET,HEAD,OPTIONS"
+                },
+                {
+                    "key": "Access-Control-Allow-Credentials",
+                    "value": "true"
+                }
+            ]
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/gacha",
+            "destination": "/gacha.html"
+        },
+        {
+            "source": "/style/(.*)",
+            "destination": "/style/(.*)"
+        },
+        {
+            "source": "/random",
+            "destination": "/api/random.py"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/api/redirect.py"
+        }
+    ]
+}
