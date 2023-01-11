@@ -21,8 +21,6 @@ def cache(func):
 
 @cache
 def read_data(sort):
-    if sort == "random":
-        sort = choice(sortList)
     with open(path.join("data", sort + ".txt"), encoding='utf-8') as file:
         data = file.readlines()
     return data
@@ -37,7 +35,9 @@ class handler(BaseHTTPRequestHandler):
         url = "http://127.0.0.1" + self.path
         input_data = parse_qs(urlparse(url).query)
         setSort = input_data.get("sort", ['random'])[0]
-        if setSort not in sortList and not setSort == "random":
+        if setSort == "random":
+            setSort = choice(sortList)
+        elif setSort not in sortList:
             self.send_response(404)
             self.send_header('Content-type', 'text/html;charset=utf-8')
             self.end_headers()
