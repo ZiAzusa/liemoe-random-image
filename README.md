@@ -1,6 +1,7 @@
 # Nahida.Fun二次元随机图 接口/抽卡模块
 ![maven](https://img.shields.io/badge/Python-blue)
-![maven](https://img.shields.io/badge/Vercel-black)<br>
+![maven](https://img.shields.io/badge/Vercel-black)
+![maven](https://img.shields.io/badge/Nahida.Fun-green)<br>
 一个使用Python编写的运行在Vercel的随机图接口（需自备图片链接）<br>
 <br>
 本项目支持使用Vercel搭建，您可以Fork本仓库后访问[Vercel](https://vercel.com)使用GitHub登录并导入您的Fork仓库在根目录创建Project。<br>
