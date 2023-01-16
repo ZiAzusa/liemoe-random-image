@@ -30,8 +30,6 @@ def report_error(title, code, note, tip, text):
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        input_header = self.headers
-        userip = input_header.get("X-User-IP")
         url = "http://127.0.0.1" + self.path
         input_data = parse_qs(urlparse(url).query)
         setSort = input_data.get("sort", ['random'])[0]
