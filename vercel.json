@@ -28,12 +28,16 @@
             "destination": "/gacha.html"
         },
         {
-            "source": "/style/(.*)",
-            "destination": "/style/(.*)"
-        },
-        {
             "source": "/random",
             "destination": "/api/random.py"
+        },
+        {
+            "source": "/favicon.ico",
+            "destination": "/style/favicon.ico"
+        },
+        {
+            "source": "/style/(.*)",
+            "destination": "/style/(.*)"
         },
         {
             "source": "/(.*)",
