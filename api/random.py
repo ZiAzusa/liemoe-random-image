@@ -116,7 +116,7 @@ class handler(BaseHTTPRequestHandler):
         return
 
     def do_GET(self):
-        global thumbnail
+        global maxNum, thumbnail
         input_header = self.headers
         userip = input_header.get("X-Real-IP")
         if not with24hLimit:
