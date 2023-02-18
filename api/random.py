@@ -137,7 +137,7 @@ class handler(BaseHTTPRequestHandler):
                 opt = report_error("检查额度", "200 OK", "您的请求已成功执行。", "执行结果：", "您IP [" + userip + "] 今日额度剩余：" + str(maxNum - ip_block[0]) + "<br>计数周期开始于：" + ip_block[1] + " UTC")
             self.handle_request(200, 'text/html;charset=utf-8', opt)
             return
-        setSort = input_data.get("sort", ['approve'])[0]
+        setSort = input_data.get("sort", ['random'])[0]
         if setSort == "random":
             setSort = choice(sortList)
         elif setSort not in sortList:
