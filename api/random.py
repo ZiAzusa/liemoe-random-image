@@ -8,7 +8,7 @@ import redis
 
 #配置项，以下配置设置小于等于0则为无限制
 #每IP每24小时最大请求链接数（需要在环境变量配置Redis信息）
-maxNum = 3000
+maxNum = 0
 #速率限制：每IP每limitTime秒可以请求limitFrequency次API
 limitTime = 5
 limitFrequency = 3
