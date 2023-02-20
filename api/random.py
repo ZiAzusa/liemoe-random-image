@@ -110,6 +110,10 @@ def limit(ip):
 class handler(BaseHTTPRequestHandler):
     def handle_request(self, code, content_type, opt):
         self.send_response(code)
+        self.send_header('Access-Control-Allow-Credentials', 'true')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type,Content-Length,Accept-Encoding,X-Requested-with,Origin')
+        self.send_header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS')
+        self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Content-Type', content_type)
         self.end_headers()
         self.wfile.write(opt.encode(encoding='UTF-8'))
