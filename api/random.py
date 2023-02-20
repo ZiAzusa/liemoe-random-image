@@ -189,6 +189,10 @@ class handler(BaseHTTPRequestHandler):
             self.handle_request(200, 'application/json', (maxNum - ip_block[0]), opt)
         else:
             self.send_response(302)
+            self.send_header('Access-Control-Allow-Credentials', 'true')
+            self.send_header('Access-Control-Allow-Headers', 'Content-Type,Content-Length,Accept-Encoding,X-Requested-with,Origin')
+            self.send_header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS')
+            self.send_header('Access-Control-Allow-Origin', '*')
             self.send_header('Location', opt)
             self.send_header('X-Remain-Num', (maxNum - ip_block[0]))
             self.end_headers()
