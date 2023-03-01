@@ -3,6 +3,13 @@ from urllib.parse import urlparse, parse_qs
 from ujson import dumps
 
 class handler(BaseHTTPRequestHandler):
+    def handle_request(self, content_type, opt):
+        self.send_response(200)
+        self.send_header('Content-Type', content_type)
+        self.end_headers()
+        self.wfile.write(opt.encode(encoding='UTF-8'))
+        return
+    
     def action(self):
         url = 'https://www.example.com' + self.path
         ipt = parse_qs(urlparse(url).query)
@@ -34,10 +41,7 @@ class handler(BaseHTTPRequestHandler):
         opt['headers'].pop("forwarded", None)
         opt['headers'].pop("x-vercel-proxy-signature", None)
         opt['headers'].pop("x-vercel-proxy-signature-ts", None)
-        self.send_response(200)
-        self.send_header('Content-Type', 'application/json')
-        self.end_headers()
-        self.wfile.write(dumps(opt).encode(encoding='UTF-8'))
+        self.handle_request('application/json', dumps(opt))
         return
 
     def do_GET(self):
