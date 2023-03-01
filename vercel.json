@@ -9,6 +9,10 @@
             "destination": "/api/random.py"
         },
         {
+            "source": "/network",
+            "destination": "/api/network.py"
+        },
+        {
             "source": "/favicon.ico",
             "destination": "/style/favicon.ico"
         },
