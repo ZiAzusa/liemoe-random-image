@@ -17,7 +17,7 @@
 |REDIS_PORT|您的Redis数据库端口|
 |REDIS_PWD|您的Redis数据库密码|
 
-若Redis数据库空间极为有限，建议设置Data eviction policy为Allkeys-LRU
+若您的Redis数据库空间极为有限，建议设置<b>Data eviction policy</b>为<b>allkeys-lru</b>
 ### 其他说明
 具体使用方法请参考 [Nahida.Fun二次元随机图](https://imgapi.nahida.fun/help)<br>
 将域名替换为您的Vercel域名即可<br>
