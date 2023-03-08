@@ -140,7 +140,7 @@ class handler(BaseHTTPRequestHandler):
             if ip_block[0] > maxNum:
                 opt = report_error("检查额度", "200 OK", "您的请求已成功执行。", "执行结果：", "您IP [" + userip + "] 今日额度已用尽<br>距离恢复" + str(maxNum) + "可用额度还有：" + ip_block[1])
             else:
-                opt = report_error("检查额度", "200 OK", "您的请求已成功执行。", "执行结果：", "您IP [" + userip + "] 今日额度剩余：" + str(maxNum - ip_block[0]) + "<br>计数周期开始于：" + ip_block[1] + " UTC")
+                opt = report_error("检查额度", "200 OK", "您的请求已成功执行。", "执行结果：", "您IP [" + userip + "] 今日额度剩余：" + str(maxNum - ip_block[0]) + "<br>计数周期开始于：" + ip_block[1] + " UTC+0")
             self.handle_request(200, 'text/html;charset=utf-8', (maxNum - ip_block[0]), opt)
             return
         setSort = input_data.get("sort", ['random'])[0]
