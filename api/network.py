@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 from ujson import dumps
+import socket
 
 class handler(BaseHTTPRequestHandler):
     def handle_request(self, content_type, opt):
@@ -44,32 +45,20 @@ class handler(BaseHTTPRequestHandler):
         self.handle_request('application/json', dumps(opt))
         return
 
-    def do_GET(self):
-        self.action()
-
-    def do_HEAD(self):
-        self.action()
-
-    def do_POST(self):
-        self.action()
-
-    def do_PUT(self):
-        self.action()
-
-    def do_DELETE(self):
-        self.action()
-
-    def do_CONNECT(self):
-        self.action()
-
-    def do_OPTIONS(self):
-        self.action()
-
-    def do_TRACE(self):
-        self.action()
-
-    def do_PATCH(self):
-        self.action()
-
-    def do_PROFIND(self):
-        self.action()
+    def handle_one_request(self):
+        try:
+            self.raw_requestline = self.rfile.readline(65537)
+            if len(self.raw_requestline) > 65536:
+                self.send_error(414)
+                return
+            if not self.raw_requestline:
+                self.close_connection = True
+                return
+            if not self.parse_request():
+                return
+            self.action()
+            self.wfile.flush()
+        except socket.timeout as e:
+            self.log_error("Request timed out: %r", e)
+            self.close_connection = True
+        return
