@@ -13,6 +13,10 @@
             "destination": "/api/network.py"
         },
         {
+            "source": "/player",
+            "destination": "/api/player.py"
+        },
+        {
             "source": "/favicon.ico",
             "destination": "/style/favicon.ico"
         },
