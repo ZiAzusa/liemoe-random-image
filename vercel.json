@@ -25,6 +25,10 @@
             "destination": "/style/(.*)"
         },
         {
+            "source": "/_vercel/(.*)",
+            "destination": "/_vercel/(.*)"
+        },
+        {
             "source": "/(.*)",
             "destination": "/api/redirect.py"
         }
