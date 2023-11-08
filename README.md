@@ -25,4 +25,4 @@ P.S.本意是只想收集亿些小纳西妲的图的，不知不觉就…阿巴�
 
 ---
 
-Made with ♡ by [魂归梓里(ZiAzusa)](https://about.sukimoe.cn/)
+Made with ♡ by [梓漪(ZiAzusa)](https://intro.lie.moe/)
